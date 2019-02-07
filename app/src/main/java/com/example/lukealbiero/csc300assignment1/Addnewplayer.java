@@ -25,9 +25,11 @@ public class Addnewplayer extends AppCompatActivity
         String name = nameET.getText().toString();
         int jerseyNumber = Integer.parseInt(jerseynumberET.getText().toString());
         int age = Integer.parseInt(ageET.getText().toString());
-        int heighInches = Integer.parseInt(heightinchesET.getText().toString());
+        int heightInches = Integer.parseInt(heightinchesET.getText().toString());
         int heightFeet = Integer.parseInt(heightfeetET.getText().toString());
-        BballTeam bTeam = new BballTeam(name, jerseyNumber, age, heighInches, heightFeet);
-        bTeam.display();
+        BballPlayer player = new BballPlayer(name, jerseyNumber, age, heightInches, heightFeet);
+        player.display();
+        Core.AddNewPlayer(player);
+        this.finish();
     }
 }//class
