@@ -2,7 +2,7 @@ package com.example.lukealbiero.csc300assignment1;
 
 public class Core
 {
-    private static BballPlayer[] thePlayers = new BballPlayer[1000];
+    public static BballPlayer[] thePlayers = new BballPlayer[1000];
     public static String[] playerStrings = new String[1000];
     private static int numberOfPlayers = 0;
 

@@ -14,6 +14,40 @@ public class BballPlayer
         this.height_inches = height_inches;
     }
 
+    public BballPlayer()
+    {
+        this.name = "NAME";
+        this.jersey_number = 0;
+        this.age = 0;
+        this.height_feet = 0;
+        this.height_inches = 0;
+    }
+
+    public String getNameString()
+    {
+        return this.name;
+    }
+
+    public String getJerseyString()
+    {
+        return "Jersey Number: (" + this.jersey_number + ")";
+    }
+
+    public String getAgeString()
+    {
+        return "Age: (" + this.age + ")";
+    }
+
+    public String getHeightFtString()
+    {
+        return "Height(ft): (" + this.height_feet + ")";
+    }
+
+    public String getHeightInString()
+    {
+        return "Height(in): (" + this.height_inches + ")";
+    }
+
     @Override
     public String toString()
     {

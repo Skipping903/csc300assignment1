@@ -11,20 +11,20 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity
 {
     private ListView lv;
+    private BballPlayerArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         for(int i = 0; i < Core.playerStrings.length; i++)
         {
-            Core.playerStrings[i] = "Empty Player";
+            Core.thePlayers[i] = new BballPlayer();
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //this.listView = (ListView)this.findViewById(R.id.listView);
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this, R.layout.list_view_row, Core.playerStrings);
+        this.aa = new BballPlayerArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
         this.lv = (ListView)this.findViewById(R.id.listView);
-        lv.setAdapter(aa);
+        this.lv.setAdapter(aa);
     }
 
     public void addNewPlayerClicked(View v)
