@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "43290166666",
+    "firebase_url": "https://csc300-fromfirebase2.firebaseio.com",
+    "project_id": "csc300-fromfirebase2",
+    "storage_bucket": "csc300-fromfirebase2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43290166666:android:7b47d1a1fa94735f",
+        "android_client_info": {
+          "package_name": "com.example.lukealbiero.csc300assignment1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43290166666-t4od9ucqoetmgkm0pd8rjjm8bioluc6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lukealbiero.csc300assignment1",
+            "certificate_hash": "6045424cad2575afaffa83fe874329694dbcb066"
+          }
+        },
+        {
+          "client_id": "43290166666-5270q11904f2g64gcabpq4ikadp168jv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChk0CT5v4ZvdI0WQ722xnqS-4nP5S2YKQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43290166666-5270q11904f2g64gcabpq4ikadp168jv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

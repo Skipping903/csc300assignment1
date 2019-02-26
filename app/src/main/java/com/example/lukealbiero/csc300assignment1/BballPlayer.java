@@ -1,6 +1,9 @@
 package com.example.lukealbiero.csc300assignment1;
 
-public class BballPlayer
+import com.google.firebase.database.Exclude;
+import java.io.Serializable;
+
+public class BballPlayer implements Serializable
 {
     private String name;
     private int jersey_number, age, height_feet, height_inches;
