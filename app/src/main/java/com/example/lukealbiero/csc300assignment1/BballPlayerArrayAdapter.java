@@ -23,7 +23,7 @@ public class BballPlayerArrayAdapter extends ArrayAdapter
 
     public BballPlayerArrayAdapter(Context context, int textViewResourceId, BballPlayer[] list)
     {
-        super(context, textViewResourceId , list);
+        super(context, textViewResourceId , list); //Calls parents constructor- Should be first line
         this.mContext = context;
         this.thePlayers = list;
         this.textViewResourceId = textViewResourceId;

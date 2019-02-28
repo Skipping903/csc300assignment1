@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+import com.google.firebase.database.*;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity
         this.aa = new BballPlayerArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
         this.lv = (ListView)this.findViewById(R.id.listView);
         this.lv.setAdapter(aa);
+
+        Core.listenForDatabaseChanges();
     }
 
     public void addNewPlayerClicked(View v)
@@ -38,5 +42,6 @@ public class MainActivity extends AppCompatActivity
     {
         super.onRestart();
         lv.invalidateViews();
+        this.aa.notifyDataSetChanged();
     }
 }//class
