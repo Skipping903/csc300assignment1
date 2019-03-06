@@ -28,8 +28,9 @@ public class Addnewplayer extends AppCompatActivity
         int heightInches = Integer.parseInt(heightinchesET.getText().toString());
         int heightFeet = Integer.parseInt(heightfeetET.getText().toString());
         BballPlayer player = new BballPlayer(name, jerseyNumber, age, heightInches, heightFeet);
-        player.display();
-        Core.AddNewPlayer(player);
+        //player.display();
+        //Core.AddNewPlayer(player);
+        Core.AddBballPlayerDB(player);
         this.finish();
     }
 }//class

@@ -12,6 +12,7 @@ public class Core
     private static int numberOfPlayers = 0;
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static DatabaseReference myRef = database.getReference("players");
+    public static BballPlayerArrayAdapter aa;
 
     /*public static String[] getThePlayerStrings()
     {
@@ -21,18 +22,20 @@ public class Core
     public static void listenForDatabaseChanges()
     {
         //async listener
-        ValueEventListener prListener = new ValueEventListener()
+        ValueEventListener playerListener = new ValueEventListener()
         {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                System.out.println(dataSnapshot);
+                System.out.println(dataSnapshot.getValue());
+                Core.numberOfPlayers = 0;
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
                     BballPlayer player = ds.getValue(BballPlayer.class);
-                    System.out.println("***** Data Changed");
-                    player.display();
+                    Core.AddNewPlayerLocal(player);
+                    //player.display();
                 }
+               Core.aa.notifyDataSetChanged();
             }
 
             @Override
@@ -42,20 +45,25 @@ public class Core
                 System.out.println("loadPost:onCancelled " + databaseError.toException());
             }
         };
-        Core.myRef.addValueEventListener(prListener);
+        Core.myRef.addValueEventListener(playerListener);
     }
 
-    public static void writePatientRecordToFirebase(BballPlayer player)
+    public static void writeBballPlayerToFirebase(BballPlayer player)
     {
         //static context
         Core.myRef.push().setValue(player);
     }
 
-    public static void AddNewPlayer(BballPlayer player)
+    public static void AddNewPlayerLocal(BballPlayer player)
     {
         Core.thePlayers[Core.numberOfPlayers] = player;
         Core.playerStrings[Core.numberOfPlayers] = player.toString();
         Core.numberOfPlayers++;
-        Core.writePatientRecordToFirebase(player);
+        //Core.writeBballPlayerToFirebase(player);
+    }
+
+    public static void AddBballPlayerDB(BballPlayer player)
+    {
+        Core.writeBballPlayerToFirebase(player);
     }
 }

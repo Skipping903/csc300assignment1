@@ -13,7 +13,7 @@ import com.google.firebase.database.*;
 public class MainActivity extends AppCompatActivity
 {
     private ListView lv;
-    private BballPlayerArrayAdapter aa;
+    //private BballPlayerArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,24 +24,25 @@ public class MainActivity extends AppCompatActivity
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.aa = new BballPlayerArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
+
+        Core.aa = new BballPlayerArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
         this.lv = (ListView)this.findViewById(R.id.listView);
-        this.lv.setAdapter(aa);
+        this.lv.setAdapter(Core.aa);
 
         Core.listenForDatabaseChanges();
-    }
-
-    public void addNewPlayerClicked(View v)
-    {
-        Intent i = new Intent(this, Addnewplayer.class);
-        this.startActivity(i);
     }
 
     @Override
     protected void onRestart()
     {
         super.onRestart();
-        lv.invalidateViews();
-        this.aa.notifyDataSetChanged();
+        //lv.invalidateViews();
+        Core.aa.notifyDataSetChanged();
+    }
+
+    public void addNewPlayerClicked(View v)
+    {
+        Intent i = new Intent(this, Addnewplayer.class);
+        this.startActivity(i);
     }
 }//class
